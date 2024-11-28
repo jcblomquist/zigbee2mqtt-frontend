@@ -28,8 +28,8 @@ export type AnyColor = RGBColor | XYColor | HueSaturationColor;
 export type DeviceState = Record<string, unknown>;
 export type Cluster = string | number;
 export type Attribute = string;
-
 export type Endpoint = string | number;
+export type Data_Type = string | number;
 
 export interface AttributeDefinition {
     ID: number;

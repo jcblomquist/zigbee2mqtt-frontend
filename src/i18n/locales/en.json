@@ -2651,6 +2651,7 @@
     "battery": "Battery",
     "block_join": "Block from joining again",
     "cluster": "Cluster",
+    "data_type": "Data Type",
     "dc_source": "DC Source",
     "description": "Description",
     "device_type": "Device type",
@@ -2699,7 +2700,8 @@
     "command": "Command",
     "payload": "Payload",
     "save_description": "Save description",
-    "update_description": "Update description"
+    "update_description": "Update description",
+    "value": "Value"
   },
   "scene": {
     "manage_scenes_header": "Manage scenes",
@@ -2934,5 +2936,11 @@
     "Home Assistant": "Home Assistant",
     "Home Assistant name": "Home Assistant name",
     "Group off state": "Group off state"
+  },
+  "devConsole": {
+    "generate_external_definitions": "Generate External Definitions",
+    "r_w_known_clusters": "Read/Write Attributes to known clusters/attribute pairs",
+    "r_w_custom_clusters": "Read/Write to a custom cluster/attribute pair",
+    "execute_cluster_command": "Execute Cluster-specific Command"
   }
 }

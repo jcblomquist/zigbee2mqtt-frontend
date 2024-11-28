@@ -19,6 +19,7 @@ export interface DeviceApi {
     generateExternalDefinition(friendlyNameOrIEEEAddress: FriendlyName | IEEEEAddress): Promise<void>;
     readDeviceAttributes(friendlyNameOrIEEEAddress: FriendlyName | IEEEEAddress, endpoint: Endpoint, cluster: Cluster, attributes: Attribute[], options: Record<string, unknown>): Promise<void>;
     writeDeviceAttributes(friendlyNameOrIEEEAddress: FriendlyName | IEEEEAddress, endpoint: Endpoint, cluster: Cluster, attributes: AttributeInfo[], options: Record<string, unknown>): Promise<void>;
+    writeCustomDeviceAttribute(friendlyNameOrIEEEAddress: FriendlyName | IEEEEAddress, endpoint: Endpoint, cluster: Cluster, attribute: Attribute,  data_type: Data_Type, data: Data, options: Record<string, unknown>): Promise<void>;
     executeCommand(friendlyNameOrIEEEAddress: FriendlyName | IEEEEAddress, endpoint: Endpoint, cluster: Cluster, command: unknown, payload: Record<string, unknown>): Promise<void>;
 }
 
@@ -74,6 +75,14 @@ export default {
         attributes.forEach(info => {
             payload[info.attribute] = info.value;
         })
+        return api.send(`${toDeviceId(id, endpoint)}/set`, { write: { cluster, payload, options } });
+    },
+
+    writeCustomDeviceAttribute(_state, id: FriendlyName | IEEEEAddress, endpoint: Endpoint, cluster: Cluster, attribute: Attribute, data_type: Data_Type, data: string, options: Record<string, unknown>): Promise<void> {
+        const payload = {};
+        payload[attribute] = {};
+        payload[attribute]["value"] = data;
+        payload[attribute]["type"] = data_type;
         return api.send(`${toDeviceId(id, endpoint)}/set`, { write: { cluster, payload, options } });
     },
 
