@@ -17,6 +17,7 @@ export function ContentRenderer(props: DevicePageProps): JSX.Element {
     const {
         readDeviceAttributes,
         writeDeviceAttributes,
+        writeCustomDeviceAttribute,
         setDeviceOptions,
         executeCommand,
         generateExternalDefinition,
@@ -55,6 +56,7 @@ export function ContentRenderer(props: DevicePageProps): JSX.Element {
                     logs={logs}
                     readDeviceAttributes={readDeviceAttributes}
                     writeDeviceAttributes={writeDeviceAttributes}
+                    writeCustomDeviceAttribute={writeCustomDeviceAttribute}
                     generateExternalDefinition={generateExternalDefinition}
                     generatedExternalDefinitions={generatedExternalDefinitions}
                     executeCommand={executeCommand}
